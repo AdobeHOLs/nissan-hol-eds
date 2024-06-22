@@ -4,12 +4,16 @@ import { returnLinkTarget } from '../../utils/helpers.js';
 
 const extractCTAButton = (footer) => {
   const ctaButtonWrapper = footer.querySelector('div:first-of-type strong');
-  const ctaButton = ctaButtonWrapper.querySelector('a');
-  ctaButton.setAttribute('target', returnLinkTarget(ctaButton.href));
-  ctaButton.classList.add('footer-cta-button', 'button', 'secondary');
-  
-  if (ctaButton) {
-    return ctaButton;
+  if(ctaButtonWrapper){
+    const ctaButton = ctaButtonWrapper.querySelector('a');
+    if(ctaButton){
+      ctaButton.setAttribute('target', returnLinkTarget(ctaButton.href));
+      ctaButton.classList.add('footer-cta-button', 'button', 'secondary');
+      
+      if (ctaButton) {
+        return ctaButton;
+      }
+    }
   }
   return null;
 };
