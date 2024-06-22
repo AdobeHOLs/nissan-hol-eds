@@ -25,8 +25,10 @@ const decorateDesktopFooterNav = (footerNavSection, ctaButton) => {
   h3Elements.forEach((h3Element) => {
     const divElement = document.createElement('div');
     const mainLink = h3Element.querySelector('a');
-    mainLink.setAttribute('target', returnLinkTarget(mainLink.href));
-    mainLink.classList.add('link-highlight-colorful-effect');
+    if(mainLink){
+      mainLink.setAttribute('target', returnLinkTarget(mainLink.href));
+      mainLink.classList.add('link-highlight-colorful-effect');
+    }
     divElement.appendChild(h3Element.cloneNode(true));
 
     let nextSibling = h3Element.nextElementSibling;
