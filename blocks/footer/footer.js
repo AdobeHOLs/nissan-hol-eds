@@ -103,14 +103,16 @@ const decorateFooterNavSection = (footer, ctaButton) => {
 
 const decoratefooterCopyrightSection = (footer) => {
   const footerCopyrightSection = footer.querySelector(':scope > div:nth-child(2)');
-  footerCopyrightSection.classList.add('footer-bottom');
-
-  // open all footer links in new windows
-  footerCopyrightSection.querySelectorAll('a').forEach((a) => {
-    a.target = '_blank';
-    // add hover effect class
-    a.classList.add('link-underline-effect');
-  });
+  if(footerCopyrightSection){
+    footerCopyrightSection.classList.add('footer-bottom');
+  
+    // open all footer links in new windows
+    footerCopyrightSection.querySelectorAll('a').forEach((a) => {
+      a.target = '_blank';
+      // add hover effect class
+      a.classList.add('link-underline-effect');
+    });
+  }
   return footerCopyrightSection;
 };
 
